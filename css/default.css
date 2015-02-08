@@ -1,0 +1,171 @@
+@charset "utf-8";
+/* CSS Document */
+/* HTML Default Styling */
+body,html{
+	min-height:100%;
+	margin:0;
+	padding:0;
+}
+h1{ 
+	font-size:3em;
+}
+h2{
+	font-size:2.5em;
+}
+h3{
+	font-size:2em;
+}
+h4{
+	font-size:1.5em;
+}
+h5{
+	font-size:1.2em;
+}
+
+/* Div Styling */
+.redBg{
+	background:#c0392b;
+	color:#FFF;
+	width:100%;
+	text-align:center;
+	padding-top:5px;
+	padding-bottom:5px;
+}
+
+/* Input Styling */
+.invisibleInput{
+	border:1px solid rgba(0,0,0,0);
+	outline:0;
+	height:25px;
+	padding:2px 5px 2px 5px;
+	font-size:0.9em;
+}
+.invisibleInput:focus{
+	border:1px solid #90b0e3;
+	outline:0;
+	border-radius:5px;
+}
+.blueButton{
+	background:#3763a8;
+	outline:0;
+	border:0;
+	color:#FFF;
+	padding:10px 14px 10px 14px;
+}
+.blueButton:hover{
+	background:#4074c4;
+}
+.redButton{
+	background:#fa633e;
+	outline:0;
+	border:0;
+	color:#FFF;
+	padding:10px 14px 10px 14px;
+}
+.redButton:hover{
+	background:#fa7351;
+}
+
+/* Input Parts */
+.noList{
+	list-style-type: none;
+	margin:0;
+}
+.noOutline{
+	border:0;
+	outline:0;
+}
+.nonResizable{
+	resize:none;
+}
+.fullRound{
+	border-radius:5px;
+}
+.leftRound{
+	border-top-left-radius:5px;
+	border-bottom-left-radius:5px;
+}
+.rightRound{
+	border-top-right-radius:5px;
+	border-bottom-right-radius:5px;
+}
+.topRound{
+	border-top-left-radius:5px;
+	border-top-left-radius:5px;
+}
+.bottomRound{
+	border-bottom-right-radius:5px;
+	border-bottom-right-radius:5px;
+}
+
+/* Font Sizes */
+.normal{
+	font-size:1em;
+}
+
+/* Padding and Margin */
+.defaultPadding{
+	padding:10px 20px 10px 20px;
+}
+.marginLeft{
+	margin-left:40px;
+}
+.marginTop{
+	margin-top:20px;
+}
+.marginRight{
+	margin-right:40px;
+}
+.marginBottom{
+	margin-bottom:20px;
+}
+
+/* Gridding */
+.fullWidth{
+	height:100%;
+}
+.fullHeight{
+	width:100%;
+}
+
+/* Alignment */
+.horizontalCenter{
+	margin-left:auto;
+	margin-right:auto;
+}
+.verticalCenter{
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+}
+.left{
+	float:left;
+}
+.right{
+	float:right;
+}
+.aRight{
+	right:0;
+}
+.aLeft{
+	left:0;
+}
+.aTop{
+	top:0;
+}
+.aBot{
+	bottom:0;
+}
+.outer-center {
+    float: right;
+    right: 50%;
+    position: relative;
+}
+.inner-center {
+    float: right;
+    right: -50%;
+    position: relative;
+}
+.clear {
+    clear: both;
+}
