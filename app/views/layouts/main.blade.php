@@ -11,7 +11,7 @@
 
     <!-- Bootstrap core CSS -->
     {{ HTML::style('css/bootstrap.css') }}
-    {{ HTML::style('css/bootstrap.css') }}
+    {{ HTML::style('css/main.css') }}
     <!--external css-->
     {{ HTML::style('font-awesome/css/font-awesome.css') }}
     {{ HTML::style('js/bootstrap-datepicker/css/datepicker.css') }}
@@ -114,7 +114,7 @@
     {{ HTML::script('js/bootstrap.min.js') }}
     {{ HTML::script('js/jquery.dcjqaccordion.2.7.js') }}
     {{ HTML::script('js/jquery.scrollTo.min.js') }}
-    {{ HTML::script('js/jquery.nicescroll.js" type="text/javascript') }}
+    {{ HTML::script('js/jquery.nicescroll.js') }}
 
 
     <!--common script for all pages-->
@@ -131,9 +131,9 @@
 	
 	<!--custom checkbox & radio-->
 	
-	{{ HTML::script('js/bootstrap-datepicker/js/bootstrap-datepicker.js') }}
-	{{ HTML::script('js/bootstrap-daterangepicker/date.js') }}
-	{{ HTML::script('js/bootstrap-daterangepicker/daterangepicker.js') }}
+	<!-- {{ HTML::script('js/bootstrap-datepicker/js/bootstrap-datepicker.js') }} -->
+	<!-- {{ HTML::script('js/bootstrap-daterangepicker/date.js') }} -->
+	<!-- {{ HTML::script('js/bootstrap-daterangepicker/daterangepicker.js') }} -->
 	
 	{{ HTML::script('js/bootstrap-inputmask/bootstrap-inputmask.min.js') }}
 	
