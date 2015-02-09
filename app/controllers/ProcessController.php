@@ -10,7 +10,8 @@ class ProcessController extends BaseController {
 	public function upload()
 	{
 		$id = Input::get('id');
-		$this->layout->content = View::make('main.upload')->with('id',$id);
+		// $this->layout->content = View::make('main.upload')->with('id',$id);
+		return View::make('main.test_multi_upl', compact('id'));
 		
 	}
 	public function process_upload()
