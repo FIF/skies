@@ -48,26 +48,27 @@ $( window ).unload(function() {
 
 /* global $, window */
 var ids = 0;
-$(function () {
+$(function ($) {
     'use strict';
 
     // Initialize the jQuery File Upload widget:
     $('#fileupload').fileupload({
         // Uncomment the following to send cross-domain cookies:
         //xhrFields: {withCredentials: true},
-        url: 'server/php/',
+        url: '/upload',
         autoUpload: false,
         acceptFileTypes: /(\.|\/)(xlsx|xls|csv)$/i,
         maxFileSize: 5000000,
     });
 	var fileName = [],fileSize =[];
+
     // Enable iframe cross-domain access via redirect option:
     $('#fileupload').fileupload(
         'option',
         'redirect',
         window.location.href.replace(
             /\/[^\/]*$/,
-            '/cors/result.html?%s'
+            '/html/result.html?%s'
         )
 		).bind('fileuploaddone', function(e, data) {
 		
@@ -90,9 +91,10 @@ $(function () {
 					fileName[ids] =  file.name;
 				fileSize[ids++] =  file.size;
 			});
+
 			$.ajax({
 					type: 'post',
-					url: 'action.php',
+					url: '/upload',
 					timeout: 24 * 60 * 60 *3600,
 					data: 'filename='+fileName[ids-1]+'&ids='+ids+'&'+$('form').serialize(),
 					beforeSend: function() { 

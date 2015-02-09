@@ -1,7 +1,8 @@
 <!-- TODO use From() -->
-<form id="fileupload" action="//jquery-file-upload.appspot.com/" method="POST" enctype="multipart/form-data">
+<form id="fileupload" action="/upload" method="POST" enctype="multipart/form-data">
     Upload Files:<input type="hidden" name="idFile" value="5">
-    <noscript><input type="hidden" name="redirect" value="https://blueimp.github.io/jQuery-File-Upload/"></noscript>
+    <input type="hidden" name="type" value="{{$id ? $id : 1}}">
+    <!-- <noscript><input type="hidden" name="redirect" value="https://blueimp.github.io/jQuery-File-Upload/"></noscript> -->
     <div class="row fileupload-buttonbar">
         <div class="col-lg-7">
             <span class="btn btn-success fileinput-button">

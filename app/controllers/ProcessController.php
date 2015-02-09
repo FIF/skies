@@ -10,15 +10,14 @@ class ProcessController extends BaseController {
 	public function upload()
 	{
 		$id = Input::get('id');
-		// $this->layout->content = View::make('main.upload')->with('id',$id);
-		return View::make('main.test_multi_upl', compact('id'));
+		$this->layout->content = View::make('main.upload')->with('id',$id);
+		//return View::make('main.test_multi_upl', compact('id'));
 		
 	}
 	public function process_upload()
 	{
 		$files = Input::file('files');
 
-		dd('hard');
 		foreach($files as $file) {
 			$ext = $file->guessClientExtension(); // (Based on mime type)
 			//$ext = $file->getClientOriginalExtension(); // (Based on filename)

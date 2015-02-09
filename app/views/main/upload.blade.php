@@ -20,7 +20,7 @@
             </h4>
             <div class="horizontalLine"></div>
             @include('include.delimiter', ['id' => $id])            
-            @include('include.multi_upload')                
+            @include('include.multi_upload', array('id'=>$id))                
             @include('include.upload_script')
             
         </div><!--/showback -->
