@@ -10,13 +10,15 @@ class ProcessController extends BaseController {
 	public function upload()
 	{
 		$id = Input::get('id');
-		$this->layout->content = View::make('main.upload')->with('id',$id);
+		// $this->layout->content = View::make('main.upload')->with('id',$id);
+		return View::make('main.test_multi_upl', compact('id'));
 		
 	}
 	public function process_upload()
 	{
 		$files = Input::file('files');
 
+		dd('hard');
 		foreach($files as $file) {
 			$ext = $file->guessClientExtension(); // (Based on mime type)
 			//$ext = $file->getClientOriginalExtension(); // (Based on filename)
@@ -29,15 +31,15 @@ class ProcessController extends BaseController {
 				$file->move('gwt/', $finalname);
 			if (Input::get('type') == 3)
 				$file->move('similiarweb/', $finalname);
-//			$file->move('uploads/');
+			$file->move('uploads/');
 			$FileEntry = new FileEntry;
 			$FileEntry->file_name = $finalname;
 			$FileEntry->type= Input::get('type');
 			$FileEntry->status = 1;
 			$FileEntry->started_at = date('Y-m-d H:i:s');
 			$FileEntry->finished_at = date('0000-00-00 00:00:00');
-			exec ("php C:\xampp\htdocs\php\96skies\test.php");
-			exec("php C:\xampp\htdocs\php\96skies\test.php 2>&1");
+			exec ("php ./test.php");
+			exec("php ./test.php 2>&1");
 			Queue::push('ProcessController@test');
 			Queue::push('ProcessController@test');
 			Queue::push('ProcessController@test');

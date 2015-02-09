@@ -57,7 +57,7 @@ return array(
 			'host'      => 'localhost',
 			'database'  => '96skies',
 			'username'  => 'root',
-			'password'  => 'dungnv',
+			'password'  => 'root',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',

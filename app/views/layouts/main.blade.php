@@ -30,7 +30,12 @@
     <!-- Custom styles for this template -->
     {{ HTML::style('css/style.css') }}
     {{ HTML::style('css/style-responsive.css') }}
-	{{ HTML::style('src/css/boxy.css'); }}
+	  {{ HTML::style('src/css/boxy.css'); }}
+
+    <!-- CSS to style the file input field as button and adjust the Bootstrap progress bars -->
+    <link rel="stylesheet" href="css/jquery.fileupload.css">
+    <link rel="stylesheet" href="css/jquery.fileupload-ui.css">
+
     <link rel="stylesheet" href="//cdn.datatables.net/1.10.4/css/jquery.dataTables.min.css">
     @yield('header')
 
