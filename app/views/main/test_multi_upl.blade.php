@@ -26,9 +26,11 @@
 
     
         <div class="content-main">
-                <h3 id="title"><i class="fa fa- fa-file"></i> Normal Sheet</h3><div id="test-1.csv"></div>
-                <div class="horizontalLine"></div>
-                <form id="sheet1">
+            <h3 id="title"><i class="fa fa- fa-file"></i> Normal Sheet</h3><div id="test-1.csv"></div>
+            <div class="horizontalLine"></div>
+            {{ Form::open(array('action'=>'ProcessController@process_upload','enctype'=>'multipart/form-data', 'method' => 'POST')) }}
+            {{ Form::hidden('type',$id) }}
+                <!-- <form id="sheet1"> -->
                     <div class="table">
                         <div class="tableHeading">Select delimiter:</div>
                         <input type="hidden" id="type" name="type" value="1">
@@ -69,8 +71,9 @@
                     <input type="button" class="btn btn-warning" id="sall" value="Select All">
                     <input type="button" class="btn btn-danger" id="usall" value="Unselect All"><br>
                     <div class="horizontalLine"></div>
-                </form>
-                <form id="fileupload" action="//jquery-file-upload.appspot.com/" method="POST" enctype="multipart/form-data">
+                <!-- </form> -->
+
+                <!-- <form id="fileupload" action="//jquery-file-upload.appspot.com/" method="POST" enctype="multipart/form-data"> -->
                     Upload Files:<input type="hidden" name="idFile" value="5">
                     <noscript><input type="hidden" name="redirect" value="https://blueimp.github.io/jQuery-File-Upload/"></noscript>
                     <div class="row fileupload-buttonbar">
@@ -108,10 +111,11 @@
                     </div>
                     <!-- The table listing the files available for upload/download -->
                     <table role="presentation" class="table table-striped"><tbody class="files"></tbody></table>
-                </form>
+                <!-- </form> -->
                 
-        </div>
+        {{ Form::close() }}
         
+        </div>
         <!-- The template to display files available for upload -->
         <script id="template-upload" type="text/x-tmpl">
         
