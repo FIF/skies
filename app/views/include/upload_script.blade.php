@@ -71,7 +71,9 @@
         <script src="js/jquery-1.11.1.min.js"></script>
 		<script src="js/vendor/jquery.ui.widget.js"></script>
         <!-- script src="js/bootstrap.js"></script -->
-        <script src="js/main.js"></script>
+        <script src="js/jquery.fileupload.js"></script>
+        <script src="js/jquery.fileupload-ui.js"></script>
+        <!--script src="js/main.js"></script-->
         <script type="text/javascript" src="js/vendor/modernizr-2.6.2.min.js"></script>
         <script type="text/javascript">
             // window.alert = function(){};
@@ -88,3 +90,4 @@
         <script src="js/jquery-ui.js"></script>
         <!-- script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script-->
         <script src="js/plugins.js"></script>
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>

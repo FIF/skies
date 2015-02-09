@@ -5,7 +5,7 @@
     @stop
     @section('content')
     <div class="col-md-12">
-        <!-- -- BASIC PROGRESS BARS ---->
+        <!-- BASIC PROGRESS BARS -->
         <h3><i class="fa fa-angle-right"></i> Upload your files</h3>
         <div class="showback">
             <h4><i class="fa fa-angle-right"></i> 
@@ -24,7 +24,7 @@
             @include('include.upload_script')
             
         </div><!--/showback -->
-    </div><! /end col-md-12 -->
+    </div><!-- /end col-md-12 -->
 
     @stop <!-- end content-->
  

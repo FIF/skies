@@ -1,4 +1,4 @@
-{{ Form::hidden('type',$id) }}
+<form id="sheet1">
     <div class="table">
         <div class="tableHeading">Select delimiter:</div>
         <input type="hidden" id="type" name="type" value="1">
@@ -39,3 +39,5 @@
     <input type="button" class="btn btn-warning" id="sall" value="Select All">
     <input type="button" class="btn btn-danger" id="usall" value="Unselect All"><br>
     <div class="horizontalLine"></div>
+
+</form>

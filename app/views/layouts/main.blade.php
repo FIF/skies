@@ -10,12 +10,22 @@
     <title>SEO Sheet Processor</title>
 
     <!-- Bootstrap core CSS -->
-    {{ HTML::style('css/bootstrap.css') }}
     {{ HTML::style('css/main.css') }}
+
     <!--external css-->
+    <!-- {{ HTML::style('css/bootstrap.css') }} -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     {{ HTML::style('font-awesome/css/font-awesome.css') }}
-    {{ HTML::style('js/bootstrap-datepicker/css/datepicker.css') }}
-    {{ HTML::style('assets/js/bootstrap-daterangepicker/daterangepicker.css') }}
+
+    <!-- blueimp Gallery styles -->
+    <link rel="stylesheet" href="//blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
+
+    <!-- CSS to style the file input field as button and adjust the Bootstrap progress bars -->
+    <link rel="stylesheet" href="css/jquery.fileupload.css">
+    <link rel="stylesheet" href="css/jquery.fileupload-ui.css">
+
+    <!-- {{ HTML::style('js/bootstrap-datepicker/css/datepicker.css') }} -->
+    <!-- {{ HTML::style('assets/js/bootstrap-daterangepicker/daterangepicker.css') }} -->
         
     <!-- Custom styles for this template -->
     {{ HTML::style('css/style.css') }}
@@ -105,12 +115,12 @@
                   <i class="fa fa-angle-up"></i>
               </a>
           </div>
-      </footer>
+      </footer-->
       <!--footer end-->
   </section>
 
     <!-- js placed at the end of the document so the pages load faster -->
-    {{ HTML::script('js/jquery.js') }}
+    {{ HTML::script('js/jquery-1.11.1.min.js') }}
     {{ HTML::script('js/bootstrap.min.js') }}
     {{ HTML::script('js/jquery.dcjqaccordion.2.7.js') }}
     {{ HTML::script('js/jquery.scrollTo.min.js') }}
