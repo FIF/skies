@@ -54,4 +54,6 @@ return array(
 
 	'storage' => __DIR__.'/../app/storage',
 
+	'public_path' => __DIR__.'/../html',
+
 );

@@ -55,7 +55,7 @@ $(function ($) {
     $('#fileupload').fileupload({
         // Uncomment the following to send cross-domain cookies:
         //xhrFields: {withCredentials: true},
-        url: '/upload',
+        url: 'upload',
         autoUpload: false,
         acceptFileTypes: /(\.|\/)(xlsx|xls|csv)$/i,
         maxFileSize: 5000000,

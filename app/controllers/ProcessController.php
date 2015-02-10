@@ -24,26 +24,35 @@ class ProcessController extends BaseController {
 			$filename = $file->getClientOriginalName();
 			$tmp = explode('.'.$ext,$filename);
 			$finalname = $tmp[0].'_'.date('YmdHis').'.'.$ext;
+
+
+			$file2 = $file;
+
 			if (Input::get('type') == 1)
 				$file->move('normal/', $finalname);
 			if (Input::get('type') == 2)
 				$file->move('gwt/', $finalname);
 			if (Input::get('type') == 3)
 				$file->move('similiarweb/', $finalname);
-			$file->move('uploads/');
+
+			
+			$file2->move('uploads/', $finalname);
+
 			$FileEntry = new FileEntry;
 			$FileEntry->file_name = $finalname;
 			$FileEntry->type= Input::get('type');
 			$FileEntry->status = 1;
 			$FileEntry->started_at = date('Y-m-d H:i:s');
 			$FileEntry->finished_at = date('0000-00-00 00:00:00');
-			exec ("php ./test.php");
-			exec("php ./test.php 2>&1");
-			Queue::push('ProcessController@test');
-			Queue::push('ProcessController@test');
-			Queue::push('ProcessController@test');
+			// exec("php ./test.php");
+			// exec("php ./test.php 2 \> &1");
+			// Queue::push('ProcessController@test');
+			// Queue::push('ProcessController@test');
+			// Queue::push('ProcessController@test');
 			$FileEntry->save();
+
 		}
+
 		return Redirect::to('/');
 		
 	}
@@ -61,5 +70,29 @@ class ProcessController extends BaseController {
 		fwrite($myfile, $txt);
 		fclose($myfile);
 	}
+
+	private static function _test() {
+		$this->newTmpDir();
+		$filetest = public_path(). "/uploads/tmp/test.txt";
+		File::put($filetest, " des: test".public_path(). " ". rand());
+	}
+
+	private static function _echoing($msg) {
+		$filetest = public_path(). "/uploads/tmp/echo.txt";
+		File::put($filetest, " des: test".public_path(). " ". $msg);
+	}
+
+	// Create new tempory directory if not exist, this dir store temp image upload
+    private function newTmpDir() {
+    	$this->newTmpDir();
+        $path = public_path(). '/uploads/tmp/';
+
+        if(!File::exists($path)) {
+            // path does not exist
+            File::makeDirectory($path, $mode = 0777, true, true);
+        }
+
+        return;
+    }
 }
 ?>
