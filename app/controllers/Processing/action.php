@@ -3,8 +3,8 @@ ini_set("memory_limit","1000M");
 error_reporting(0);
 set_time_limit(0);
 
-$type = $_POST['type'];
-$filename = $_POST['filename'];
+// $type = $_POST['type'];
+// $filename = $_POST['filename'];
 
 $extension = explode('.',$filename);
 echo $_POST['ids'];
@@ -25,7 +25,7 @@ for ($n = 1; $n < 34; $n++)
 
 
 
-date_default_timezone_set('Singapore');
+// date_default_timezone_set('Singapore');
 
 
 /** Include path **/
@@ -35,7 +35,7 @@ set_include_path(get_include_path() . PATH_SEPARATOR . '../../../Classes/');
 include 'PHPExcel/IOFactory.php';
 
 include('config.php');
-$inputFileName = './server/php/files/'.$filename;
+$inputFileName = base_path().'/normal/'.$filename; // Xua la server/files/ ...
 
 if($extension[1] == 'csv')
 {
@@ -211,7 +211,7 @@ if ($type == 1)
 	
 	// write the file
 	$fname = explode('.',$filename);
-	$objWriter->save('./files/'.$fname[0].'-Report.xlsx');
+	$objWriter->save(base_path().'/files/'.$fname[0].'-Report.xlsx');
 	
 	
 	// write header
@@ -303,7 +303,7 @@ else if ($type == 2)
 	}
 	
 	// write the file
-	$objWriter2->save('./files/'.$fname[0].'-Report.csv');
+	$objWriter2->save(base_path().'/files/'.$fname[0].'-Report.csv');
 }
 else if ($type == 3)
 {
@@ -339,7 +339,7 @@ else if ($type == 3)
 	
 	// write the file
 	$fname = explode('.',$filename);
-	$objWriter->save('./files/'.$fname[0].'-Report.xlsx');	
+	$objWriter->save(base_path().'/files/'.$fname[0].'-Report.xlsx');	
 	
 	// write header
 	$objSheet2->getCell('A1')->setValue('UNIQUE WORDs');
@@ -359,5 +359,5 @@ else if ($type == 3)
 	}
 
 	// write the file
-	$objWriter2->save('./files/'.$fname[0].'-Report.csv');
+	$objWriter2->save(base_path().'/files/'.$fname[0].'-Report.csv');
 }
