@@ -63,6 +63,7 @@ $(function ($) {
 	var fileName = [],fileSize =[];
 
     // Enable iframe cross-domain access via redirect option:
+    /* fix_me
     $('#fileupload').fileupload(
         'option',
         'redirect',
@@ -92,9 +93,14 @@ $(function ($) {
 				fileSize[ids++] =  file.size;
 			});
 
-			$.ajax({
+            console.log('filename='+fileName[ids-1]+'&ids='+ids+'&'+$('form').serialize());
+*/
+
+            /*
+			$.ajax({ 
 					type: 'post',
-					url: '/upload',
+                    // url: '/upload',
+					url: '/attachments/store',
 					timeout: 24 * 60 * 60 *3600,
 					data: 'filename='+fileName[ids-1]+'&ids='+ids+'&'+$('form').serialize(),
 					beforeSend: function() { 
@@ -125,8 +131,10 @@ $(function ($) {
 						$(".horizontalLine").html("Please try again. Try reloading the page or delete all existing files below");
 					}
 			});
+ fix me */
 			// Pass the Name and Size through AJAX
-				
+
+/*				
 		}).bind('fileuploadfail', function(e, data) {
 			// Show error message
 	});
@@ -171,5 +179,6 @@ $(function ($) {
                 .call(this, $.Event('done'), {result: result});
         });
     }
+    */
 
 });

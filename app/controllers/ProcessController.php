@@ -16,6 +16,9 @@ class ProcessController extends BaseController {
 	}
 	public function process_upload()
 	{
+
+		// return Response::json('kkk');
+
 		$files = Input::file('files');
 
 		foreach($files as $file) {
@@ -36,24 +39,25 @@ class ProcessController extends BaseController {
 				$file->move('similiarweb/', $finalname);
 
 			
-			$file2->move('uploads/', $finalname);
+			// $file2->move('uploads/', $finalname);
 
-			$FileEntry = new FileEntry;
-			$FileEntry->file_name = $finalname;
-			$FileEntry->type= Input::get('type');
-			$FileEntry->status = 1;
-			$FileEntry->started_at = date('Y-m-d H:i:s');
-			$FileEntry->finished_at = date('0000-00-00 00:00:00');
+			// $FileEntry = new FileEntry;
+			// $FileEntry->file_name = $finalname;
+			// $FileEntry->type= Input::get('type');
+			// $FileEntry->status = 1;
+			// $FileEntry->started_at = date('Y-m-d H:i:s');
+			// $FileEntry->finished_at = date('0000-00-00 00:00:00');
 			// exec("php ./test.php");
 			// exec("php ./test.php 2 \> &1");
 			// Queue::push('ProcessController@test');
 			// Queue::push('ProcessController@test');
 			// Queue::push('ProcessController@test');
-			$FileEntry->save();
+			// $FileEntry->save();
 
 		}
 
-		return Redirect::to('/');
+		return Response::json($file);
+		// return Redirect::to('/');
 		
 	}
 	public function show_files()

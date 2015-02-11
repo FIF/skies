@@ -1,0 +1,185 @@
+<?php
+
+// namespace File;
+
+class AttachmentsController extends BaseController {
+
+    protected $attachment;
+
+    public function __construct(\Attachment $attachment)
+    {
+        $this->attachment = $attachment;
+        parent::__construct();
+    }
+
+    public function index()
+    {
+        dd('kkk');
+
+    }
+
+    public function getIndex()
+    {
+        $attachments = $this->attachment->paginate(ATTA_PER_PAGE);
+        $this->setNaviCurrent();
+        $this->layout->title = trans('home.attachment_create');
+        $this->layout->main = \View::make('company.attachments.index',compact('attachments'));
+    }
+
+    public function create()
+    {
+        $this->setNaviCurrent();
+        $this->layout->title = trans('home.attachment_create');
+        $this->layout->main = \View::make('company.attachments.create');
+    }
+
+    public function store()
+    {
+       
+        return \Response::json('kkk');
+    }
+
+    public function edit($id)
+    {
+        $attachment = $this->attachment->find($id);
+        if (is_null($attachment))
+        {
+            return Redirect::route('company.attachments.index')->with('message', 'File not found');
+        }
+
+        $this->setNaviCurrent();
+        $this->layout->title = trans('home.attachment_create');
+        $this->layout->main = \View::make('company.attachments.edit', compact('attachment'));
+    }
+
+    //update info for attachment edit
+    public function update($id)
+    {
+        $attachment = $this->attachment->find($id);
+        $attachment->updateInfo(Input::get('name'),Input::get('note'));
+        return Redirect::route('company.attachments.edit',$id)->with('message', 'success.');
+    }
+
+    //show modal view
+    public function show($id)
+    {
+        $attachment = $this->attachment->find($id);
+        return \View::make('company.attachments.show', compact('attachment'));
+    }
+
+    //show modal delete
+    public function modal02($id)
+    {
+        $attachment = $this->attachment->find($id);
+        return \View::make('company.attachments._delete', compact('attachment'));
+    }
+
+    //download one attachment
+    public function download($id)
+    {
+        $attachment = $this->attachment->find($id);
+        return \View::make('company.attachments._download', compact('attachment'));
+    }
+
+    //Move one attachment to category
+    public function category()
+    {
+
+    }
+
+    //delete attachment
+    public function destroy($id)
+    {
+        $this->attachment->find($id)->deleteAttachment();
+        return Redirect::route('company.attachments.index')->with('message', 'Delete success.');
+    }
+
+    //search attachment by option
+    public function searchAttachment(){
+
+    }
+
+    //create category
+    public function createCategory(){
+
+    }
+
+
+    // Download multi attachments, delete multi attachments
+    public function optionFile(){
+        $attachment_ids = preg_split("/,/",Input::get('attachment_ids'));
+        $type_action = Input::get('type_action');
+        if($type_action == self::MULTI_DELETE){
+            foreach($attachment_ids as $id){
+                $item = $this->attachment->where('id','=',$id)
+                    ->where('project_id','=', \Session::get('project_id'))
+                    ->first();
+                if(!is_null($item) || !count($item) == 0)
+                {
+                    $item->deleteAttachment();
+                }
+            }
+            return Redirect::route('company.attachments.index')->with('message', 'Delete success.');
+        }
+        if($type_action == self::MULTI_DOWNLOAD){
+            $file_path = array();
+            $today = date("Ymd");
+            $archive_file_name = 'conductor_' . $today . '.zip';
+            foreach($attachment_ids as $id){
+                $_att = $this->attachment->find($id);
+                $file_path[$_att->photo->originalFilename()] = $_att->photo->url();
+            }
+            $this->zipFilesAndDownload($file_path,$archive_file_name);
+        }
+    }
+
+    //create file zip attachment for download many
+    private function zipFilesAndDownload($file_path,$archive_file_name)
+    {
+        $zip = new \ZipArchive();
+        $today = date("Ymd");
+        $randomNameZip = \Str::random(20);
+
+        if (!is_dir(public_path().'/uploads/zipfile/' .$today . '/' . $randomNameZip))
+        {
+            mkdir(public_path().'/uploads/zipfile/' .$today . '/' . $randomNameZip,0777, true);
+        }
+
+        $folderToZip = public_path().'/uploads/zipfile/' . $today . '/' . $randomNameZip . "/";
+
+        //create the file and throw the error if unsuccessful
+        if ($zip->open($folderToZip.$archive_file_name, \ZIPARCHIVE::CREATE )!==TRUE) {
+            exit("cannot open <$archive_file_name>\n");
+        }
+
+        //add each files of $file_name array to archive
+        foreach($file_path as $key => $val){
+            $zip->addFile($_SERVER['DOCUMENT_ROOT'].$val,$key);
+        }
+
+        $zip->close();
+
+        //then send the headers to foce download the zip file
+        header("Content-type: application/zip");
+        header("Content-Disposition: attachment; filename=$archive_file_name");
+        header("Pragma: no-cache");
+        header("Expires: 0");
+        readfile("$folderToZip"."$archive_file_name");
+        exit;
+    }
+
+    //move multi attachments
+    public function move_to_category(){
+
+    }
+
+    //change view attachments
+    public function changeView(){
+
+    }
+
+    public function searchAttachmentInPost() {
+
+    }
+
+} 
