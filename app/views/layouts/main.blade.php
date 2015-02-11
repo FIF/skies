@@ -14,11 +14,11 @@
 
     <!--external css-->
     <!-- {{ HTML::style('css/bootstrap.css') }} -->
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     {{ HTML::style('font-awesome/css/font-awesome.css') }}
 
     <!-- blueimp Gallery styles -->
-    <link rel="stylesheet" href="//blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
+    <link rel="stylesheet" href="css/blueimp-gallery.min.css">
 
     <!-- CSS to style the file input field as button and adjust the Bootstrap progress bars -->
     <link rel="stylesheet" href="css/jquery.fileupload.css">
@@ -36,7 +36,7 @@
     <link rel="stylesheet" href="css/jquery.fileupload.css">
     <link rel="stylesheet" href="css/jquery.fileupload-ui.css">
 
-    <link rel="stylesheet" href="//cdn.datatables.net/1.10.4/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="css/jquery.dataTables.min.css">
     @yield('header')
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -156,7 +156,7 @@
 	{{ HTML::script('js/form-component.js') }}   
     
   {{ HTML::script("src/js/jquery.boxy.js") }}
-  <script src="//cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js"></script>
+  <script src="js/jquery.dataTables.min.js"></script>
     @yield('script')
     
 

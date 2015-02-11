@@ -20,6 +20,7 @@ class ProcessController extends BaseController {
 		// return Response::json('kkk');
 
 		$files = Input::file('files');
+		$type = Input::get('type');
 
 		foreach($files as $file) {
 			$ext = $file->guessClientExtension(); // (Based on mime type)
@@ -31,11 +32,11 @@ class ProcessController extends BaseController {
 
 			$file2 = $file;
 
-			if (Input::get('type') == 1)
+			if ($type == 1)
 				$file->move('normal/', $finalname);
-			if (Input::get('type') == 2)
+			if ($type == 2)
 				$file->move('gwt/', $finalname);
-			if (Input::get('type') == 3)
+			if ($type == 3)
 				$file->move('similiarweb/', $finalname);
 
 			

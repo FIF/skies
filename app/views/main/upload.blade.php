@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
     @section('header')
-     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+     <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css"> -->
     @stop
     @section('content')
     <div class="col-md-12">
