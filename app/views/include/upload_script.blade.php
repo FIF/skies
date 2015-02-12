@@ -50,7 +50,7 @@
                     <span class="size">{%=o.formatFileSize(file.size)%}</span>
                 </td>
                 <td id="dlp{%=i %}">
-					<img src="img/ajax-loader.gif" id="ajaxLoader{%=file.size %}">
+					<!--img src="img/ajax-loader.gif" id="ajaxLoader{%=file.size %}"-->
 					<a href="#" id="dx{%=file.size %}" download="#"><input type="button" class="btn btn-primary" id="dowl{%=file.size %}" value="Download .xlsx" disabled></a>
 					<a href="#" id="dc{%=file.size %}" download="#"><input type="button" class="btn btn-warning" id="dowlc{%=file.size %}" value="Download .csv"  disabled></a>{% if (file.deleteUrl) { %}
                         <button class="btn btn-danger delete" data-type="{%=file.deleteType%}" data-url="{%=file.deleteUrl%}"{% if (file.deleteWithCredentials) { %} data-xhr-fields='{"withCredentials":true}'{% } %}>
@@ -85,8 +85,8 @@
             });
 
             $(document).ready(function() {
-                getUserProfile();
-                sendUserProfile();
+                // getUserProfile();
+                // sendUserProfile();
             });
         </script>
         <script src="js/jquery-ui.js"></script>

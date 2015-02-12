@@ -22,6 +22,7 @@
             @include('include.delimiter', ['id' => $id])            
             @include('include.multi_upload', array('id'=>$id))                
             @include('include.upload_script')
+            <!-- @include('include.upload_js_script') -->
             
         </div><!--/showback -->
     </div><!-- /end col-md-12 -->

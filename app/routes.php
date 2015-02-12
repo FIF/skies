@@ -15,7 +15,9 @@
 Route::get('/',array('uses'=>'CoverController@index'));
 Route::put('/upload',array('uses'=>'ProcessController@upload'));
 Route::get('/upload',array('uses'=>'ProcessController@upload'));
-Route::post('/upload',array('uses'=>'ProcessController@process_upload'));
+Route::post('/upload',array('as' => 'process.upload', 'uses'=>'ProcessController@process_upload'));
+Route::post('/uploadAction',array('uses'=>'ProcessController@process_upload'));
+
 Route::get('/files',array('uses'=>'ProcessController@show_files'));
 Route::get('/test',array('uses'=>'ProcessController@test'));
 Route::get('/home',array('uses'=>'HomeController@showWelcome'));

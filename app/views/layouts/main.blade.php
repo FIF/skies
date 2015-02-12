@@ -125,7 +125,7 @@
   </section>
 
     <!-- js placed at the end of the document so the pages load faster -->
-    {{ HTML::script('js/vendor/user_profile.js') }}
+    <!-- {{ HTML::script('js/vendor/user_profile.js') }} -->
 
     {{ HTML::script('js/jquery-1.11.1.min.js') }}
     {{ HTML::script('js/bootstrap.min.js') }}

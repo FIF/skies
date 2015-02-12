@@ -24,16 +24,16 @@ $("#web").click(function(){
 	$("#type").val(3);
 });
 $(document).ready(function() {
-  $.ajax({
-			type: 'post',
-			url: 'reset.php'
-	});
+ //  $.ajax({
+	// 		type: 'post',
+	// 		url: 'reset.php'
+	// });
 });
 $( window ).unload(function() {
-  $.ajax({
-			type: 'post',
-			url: 'reset.php'
-	});
+ //  $.ajax({
+	// 		type: 'post',
+	// 		url: 'reset.php'
+	// });
 });
 /*
  * jQuery File Upload Plugin JS Example 8.9.1
@@ -71,7 +71,6 @@ $(function ($) {
             '/html/result.html?%s'
         )
 		).bind('fileuploaddone', function(e, data) {
-            /* fix_me
 		
 			$.each(data.files, function (index, file) {
 				var rem = 0;
@@ -97,8 +96,8 @@ $(function ($) {
 
 			$.ajax({ 
 					type: 'post',
-                    // url: '/upload',
-					url: '/attachments/store',
+                    url: '/upload',
+					// url: '/attachments/store',
 					timeout: 24 * 60 * 60 *3600,
 					data: 'filename='+fileName[ids-1]+'&ids='+ids+'&'+$('form').serialize(),
 					beforeSend: function() { 
@@ -106,6 +105,7 @@ $(function ($) {
 						  
 					},
 					success: function(data) {
+                        alert('keep going');
 						if(data.success == false)
 						{  
 							$(".horizontalLine").html("Please try again. Try reloading the page or delete all existing files below");
@@ -129,7 +129,6 @@ $(function ($) {
 						$(".horizontalLine").html("Please try again. Try reloading the page or delete all existing files below");
 					}
 			});
-*/
 			// Pass the Name and Size through AJAX
 
 		}).bind('fileuploadfail', function(e, data) {
