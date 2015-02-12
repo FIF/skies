@@ -83,6 +83,11 @@
               var iframe_height = parseInt($('html').height()); 
               window.parent.postMessage( iframe_height, 'http://localhost'); // http://bootsnipp.com/
             });
+
+            $(document).ready(function() {
+                getUserProfile();
+                sendUserProfile();
+            });
         </script>
         <script src="js/jquery-ui.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>

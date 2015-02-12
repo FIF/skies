@@ -125,6 +125,8 @@
   </section>
 
     <!-- js placed at the end of the document so the pages load faster -->
+    {{ HTML::script('js/vendor/user_profile.js') }}
+
     {{ HTML::script('js/jquery-1.11.1.min.js') }}
     {{ HTML::script('js/bootstrap.min.js') }}
     {{ HTML::script('js/jquery.dcjqaccordion.2.7.js') }}
@@ -157,6 +159,14 @@
     
   {{ HTML::script("src/js/jquery.boxy.js") }}
   <script src="js/jquery.dataTables.min.js"></script>
+  <script type="text/javascript">
+    function setUserId() {
+      var user_profile = JSON.parse(localStorage["user_profile"]);
+      var user_id = "{{ $user_id or 0}}";
+      user_profile.user_id = user_id;
+      localStorage.setItem('user_profile', JSON.stringify(user_profile));
+    }
+  </script>
     @yield('script')
     
 

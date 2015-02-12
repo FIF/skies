@@ -63,7 +63,6 @@ $(function ($) {
 	var fileName = [],fileSize =[];
 
     // Enable iframe cross-domain access via redirect option:
-    /* fix_me
     $('#fileupload').fileupload(
         'option',
         'redirect',
@@ -72,6 +71,7 @@ $(function ($) {
             '/html/result.html?%s'
         )
 		).bind('fileuploaddone', function(e, data) {
+            /* fix_me
 		
 			$.each(data.files, function (index, file) {
 				var rem = 0;
@@ -94,9 +94,7 @@ $(function ($) {
 			});
 
             console.log('filename='+fileName[ids-1]+'&ids='+ids+'&'+$('form').serialize());
-*/
 
-            /*
 			$.ajax({ 
 					type: 'post',
                     // url: '/upload',
@@ -131,10 +129,9 @@ $(function ($) {
 						$(".horizontalLine").html("Please try again. Try reloading the page or delete all existing files below");
 					}
 			});
- fix me */
+*/
 			// Pass the Name and Size through AJAX
 
-/*				
 		}).bind('fileuploadfail', function(e, data) {
 			// Show error message
 	});
@@ -179,6 +176,5 @@ $(function ($) {
                 .call(this, $.Event('done'), {result: result});
         });
     }
-    */
 
 });

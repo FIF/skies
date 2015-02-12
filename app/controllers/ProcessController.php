@@ -9,6 +9,10 @@ class ProcessController extends BaseController {
 	protected $layout = "layouts.main";	
 	public function upload()
 	{
+		$this->setUserId();
+		$user_id = unserialize($_COOKIE['user_profile'])['user_id'] || rand();
+		View::share('user_id', $user_id);
+
 		$id = Input::get('id');
 		$this->layout->content = View::make('main.upload')->with('id',$id);
 		//return View::make('main.test_multi_upl', compact('id'));

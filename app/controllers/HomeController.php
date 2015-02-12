@@ -20,4 +20,8 @@ class HomeController extends BaseController {
 		return View::make('layouts.main');
 	}
 
+	public function ajaxUserProfile() {
+		dd(Input::all());
+	}
+
 }

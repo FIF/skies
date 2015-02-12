@@ -20,6 +20,8 @@ Route::get('/files',array('uses'=>'ProcessController@show_files'));
 Route::get('/test',array('uses'=>'ProcessController@test'));
 Route::get('/home',array('uses'=>'HomeController@showWelcome'));
 
+Route::post('/ajaxUserProfile',array('uses'=>'HomeController@ajaxUserProfile'));
+
 Route::get('/attachments', array('uses'=>'AttachmentsController@index'));
 
 Route::resource('attachments', 'File\AttachmentsController',array('names' => array('index'  => 'file.attachments.index'
