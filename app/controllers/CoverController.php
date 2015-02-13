@@ -19,11 +19,18 @@ class CoverController extends BaseController {
     public function show_files()
     {
         $files = FileEntry::all();
+
+        $cur_files = FileEntry::curProcessingSheet();
+        $files = File::allFiles('files');
+        dd($cur_files);
+        dd(File::lastModified($files['0']));
+
         $this->layout->content = View::make('main.files')->with('files',$files);
     }
 
     public function processed_files()
     {
+        
         return View::make('main.processed_files')->with('files', File::allFiles('files'));
     }
 	
