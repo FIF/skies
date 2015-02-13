@@ -30,7 +30,14 @@ class CoverController extends BaseController {
     public function processed_files()
     {
         
-        return View::make('main.processed_files')->with('files', File::allFiles('files'));
+        // return View::make('main.processed_files')->with('files', File::allFiles('files'));
+    }
+
+    public function ajaxInProgress() {
+
+        $in_progress = FileEntry::curProcessingSheet();
+        $progress = View::make('forms.processing')->with('in_progress', $in_progress);
+        return $progress;
     }
 	
 }

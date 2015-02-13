@@ -26,6 +26,8 @@ Route::get('/test',array('uses'=>'ProcessController@test'));
 Route::get('/home',array('uses'=>'HomeController@showWelcome'));
 
 Route::post('/ajaxUserProfile',array('uses'=>'HomeController@ajaxUserProfile'));
+Route::post('/ajaxInProgress',array('uses'=>'CoverController@ajaxInProgress'));
+Route::get('/ajaxInProgress',array('as' => 'cover.ajaxInProgress', 'uses'=>'CoverController@ajaxInProgress'));
 
 Route::get('/attachments', array('uses'=>'AttachmentsController@index'));
 

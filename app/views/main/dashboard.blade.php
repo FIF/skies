@@ -48,6 +48,7 @@
                       </tr>
                   </thead>   
                   <tbody>
+                  <div id="in_progress_tbl">
                     @foreach ($in_progress as $running)
                     <tr>
                       <td>{{ $running[0] }}
@@ -63,9 +64,7 @@
                               ---
                         </td>
                       <td class="onlydesktop">
-
                               1%
-
                         </td>
                       <td>
                               {{ "Download" }}
@@ -73,6 +72,7 @@
                         </td>
                     </tr>
                  @endforeach
+                 </div>
 
                   @foreach ($files as $file)
                     <tr>
@@ -128,12 +128,20 @@
     function() {
         setInterval(function() {
             //
+            $.ajax({
+              url: "{{ route('cover.processed_files') }}",
+              type: "GET", // not POST, laravel won't allow it
+              success: function(data){
+                $data = $(data); // the HTML content your controller has produced
+                $('#in_progress_tbl').fadeOut().html($data).fadeIn();    
+                }
+            });
         }, 5000);
     });
 
   if(window.top==window) {
     // You're not in a frame, so you reload the site.
-    window.setTimeout('location.reload()', 5000); //Reloads after three seconds
+    // window.setTimeout('location.reload()', 10000); //Reloads after 
   }
   else {
       //You're inside a frame, so you stop reloading.
