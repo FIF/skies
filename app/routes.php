@@ -18,7 +18,10 @@ Route::get('/upload',array('uses'=>'ProcessController@upload'));
 Route::post('/upload',array('as' => 'process.upload', 'uses'=>'ProcessController@process_upload'));
 Route::post('/uploadAction',array('uses'=>'ProcessController@process_upload'));
 
-Route::get('/files',array('uses'=>'ProcessController@show_files'));
+//Route::get('/files',array('as' => 'process.show_files', 'uses'=>'ProcessController@show_files'));
+Route::get('/showfiles',array('as' => 'cover.show_files', 'uses'=>'CoverController@show_files'));
+Route::get('/processed_files',array('as' => 'cover.processed_files', 'uses'=>'CoverController@processed_files'));
+
 Route::get('/test',array('uses'=>'ProcessController@test'));
 Route::get('/home',array('uses'=>'HomeController@showWelcome'));
 

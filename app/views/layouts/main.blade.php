@@ -87,7 +87,7 @@
                       </a>
                   </li>
                   <li class="">
-                      <a href="{{ URL::to('files') }}">
+                      <a href="{{ URL::to('showfiles') }}">
                           <i class="fa fa-folder"></i>
                           <span>Your Files </span>
                       </a>

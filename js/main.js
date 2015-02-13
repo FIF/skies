@@ -92,7 +92,7 @@ $(function ($) {
 				fileSize[ids++] =  file.size;
 			});
 
-            console.log('filename='+fileName[ids-1]+'&ids='+ids+'&'+$('form').serialize());
+            console.log('keep going');
 
 			$.ajax({ 
 					type: 'post',
@@ -105,7 +105,7 @@ $(function ($) {
 						  
 					},
 					success: function(data) {
-                        alert('keep going');
+                        console.log('keep going');
 						if(data.success == false)
 						{  
 							$(".horizontalLine").html("Please try again. Try reloading the page or delete all existing files below");

@@ -1,3 +1,4 @@
+ 
  <!-- The template to display files available for upload -->
         <script id="template-upload" type="text/x-tmpl">
 		
@@ -50,7 +51,7 @@
                     <span class="size">{%=o.formatFileSize(file.size)%}</span>
                 </td>
                 <td id="dlp{%=i %}">
-					<!--img src="img/ajax-loader.gif" id="ajaxLoader{%=file.size %}"-->
+					<img src="img/ajax-loader.gif" id="ajaxLoader{%=file.size %}">
 					<a href="#" id="dx{%=file.size %}" download="#"><input type="button" class="btn btn-primary" id="dowl{%=file.size %}" value="Download .xlsx" disabled></a>
 					<a href="#" id="dc{%=file.size %}" download="#"><input type="button" class="btn btn-warning" id="dowlc{%=file.size %}" value="Download .csv"  disabled></a>{% if (file.deleteUrl) { %}
                         <button class="btn btn-danger delete" data-type="{%=file.deleteType%}" data-url="{%=file.deleteUrl%}"{% if (file.deleteWithCredentials) { %} data-xhr-fields='{"withCredentials":true}'{% } %}>
@@ -81,10 +82,11 @@
             }
             $( document ).ready(function() {
               var iframe_height = parseInt($('html').height()); 
-              window.parent.postMessage( iframe_height, 'http://localhost'); // http://bootsnipp.com/
+              window.parent.postMessage( iframe_height, "{{ URL::to('/') }}"); // http://bootsnipp.com/
             });
 
             $(document).ready(function() {
+                //console.log("{{ $finalname or 'kkk' }}");
                 // getUserProfile();
                 // sendUserProfile();
             });
