@@ -85,12 +85,12 @@ class FileEntry extends Eloquent {
 
 		foreach($cur_files as $curFile) {
 			if(!self::checkFileInArray($curFile->file_name, 'xlsx', $processed)) {  // cur file not processed
-				$results += [self::getReportFile($curFile, 'xlsx')];
+				array_push($results, [self::getReportFile($curFile->file_name, 'xlsx')]);
 			}
 
 			// check csv output
 			if(!self::checkFileInArray($curFile->file_name, 'csv', $processed)) {  // cur file not processed
-				$results += [self::getReportFile($curFile, 'csv')];
+				array_push($results, [self::getReportFile($curFile->file_name, 'csv')]);
 			}
 		}
 
@@ -104,6 +104,7 @@ class FileEntry extends Eloquent {
 	private static function checkFileInArray($file, $outp_ext, $arrOfFile) {
 		// NOTE $arrOfFile could be object, not array
 
+		// Get filename as report sheet name.
 		$report_file = self::getReportFile($file, $outp_ext);
 
 		if(in_array($report_file, $arrOfFile)) {  // file not processed yet.

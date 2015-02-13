@@ -9,10 +9,11 @@ class CoverController extends BaseController {
 	protected $layout = "layouts.main";	
 	public function index()
 	{
-		//$files = FileEntry::all();
         $files = File::allFiles('files');
         // chmod(base_path().'/files', 777);
-		$this->layout->content = View::make('main.dashboard')->with('files',$files);
+        $in_progress = FileEntry::curProcessingSheet();
+
+		$this->layout->content = View::make('main.dashboard', compact('files', 'in_progress'));
 		
 	}
 
@@ -20,10 +21,8 @@ class CoverController extends BaseController {
     {
         $files = FileEntry::all();
 
-        $cur_files = FileEntry::curProcessingSheet();
-        $files = File::allFiles('files');
-        dd($cur_files);
-        dd(File::lastModified($files['0']));
+        // $cur_files = FileEntry::curProcessingSheet();
+        // $files = File::allFiles('files');
 
         $this->layout->content = View::make('main.files')->with('files',$files);
     }

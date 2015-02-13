@@ -48,6 +48,32 @@
                       </tr>
                   </thead>   
                   <tbody>
+                    @foreach ($in_progress as $running)
+                    <tr>
+                      <td>{{ $running[0] }}
+                      </td>
+                      <td>
+                            @if (1)
+                              --- 
+                            @endif
+                        </td>
+                      <td class="onlydesktop">{{ date('d-m-Y H:i:s') }}</td>
+                      <td class="onlydesktop">
+
+                              ---
+                        </td>
+                      <td class="onlydesktop">
+
+                              1%
+
+                        </td>
+                      <td>
+                              {{ "Download" }}
+                         
+                        </td>
+                    </tr>
+                 @endforeach
+
                   @foreach ($files as $file)
                     <tr>
                       <td>{{ link_to_asset($file->getPathName(), $file->getFileName()) }}
@@ -97,6 +123,23 @@
 @section ('script')
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
 <script>
+
+ $(document).ready(
+    function() {
+        setInterval(function() {
+            //
+        }, 5000);
+    });
+
+  if(window.top==window) {
+    // You're not in a frame, so you reload the site.
+    window.setTimeout('location.reload()', 5000); //Reloads after three seconds
+  }
+  else {
+      //You're inside a frame, so you stop reloading.
+  }
+
+
 	$('.datatable').DataTable({ "order": [[ 2, "desc" ]]});
 	$("#normalsheet").click(function(){
 		$("#processid").val(1);
@@ -110,6 +153,7 @@
 		$("#processid").val(3);
 		$("#uploadform").submit();
 	});
+
 
 </script>
 @stop
