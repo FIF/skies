@@ -133,7 +133,7 @@
               type: "GET", // not POST, laravel won't allow it
               success: function(data){
                 $data = $(data); // the HTML content your controller has produced
-                $('#in_progress_tbl').fadeOut().html($data).fadeIn();    
+                // $('#in_progress_tbl').fadeOut().html($data).fadeIn();    
                 }
             });
         }, 5000);
@@ -141,7 +141,7 @@
 
   if(window.top==window) {
     // You're not in a frame, so you reload the site.
-    // window.setTimeout('location.reload()', 10000); //Reloads after 
+    window.setTimeout('location.reload()', 10000); //Reloads after 
   }
   else {
       //You're inside a frame, so you stop reloading.

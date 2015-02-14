@@ -1,4 +1,7 @@
 <?php
+$start = microtime();
+$filetest = "./uploads/tmp/timer.txt";
+
 ini_set("memory_limit","1000M");
 error_reporting(0);
 set_time_limit(0);
@@ -159,6 +162,11 @@ foreach($uniqueSeperatedKey as $val)
 		$sum_traffic[$val]	=	$sum_traffic[$val] ;
 	}
 }
+
+
+$end_1 = time();
+file_put_contents($filetest, "duration_one = ". ($end_1 - $start));
+error_log("durace ".($end_1 - $start));
 
 arsort($uniqueWords);
 
@@ -358,6 +366,12 @@ else if ($type == 3)
 		$m++;
 	}
 
+	$end_2 = microtime();
+	error_log("durace_2 ".($end_2 - $start));
+
 	// write the file
 	$objWriter2->save(base_path().'/files/'.$fname[0].'-Report.csv');
+
+	$end_3 = microtime();
+	error_log("durace_3 ".($end_3 - $start));
 }
